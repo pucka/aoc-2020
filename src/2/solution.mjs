@@ -20,7 +20,7 @@ export const nrOfCorrectPasswords2 = (input) =>
 
     const positions = password
       .split("")
-      .reduce((acc, curr, i) => (curr === char ? [...acc, i +1] : acc), []);
+      .reduce((acc, curr, i) => (curr === char ? [...acc, i + 1] : acc), []);
 
     return (
       !positions.includes(Number(minChar)) !==
