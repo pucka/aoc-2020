@@ -22,8 +22,8 @@ export const nrOfCorrectPasswords2 = (input) =>
       .split("")
       .reduce((acc, curr, i) => (curr === char ? acc.concat(i + 1) : acc), []);
 
-    const hasPositionOne = positions.includes(Number(minChar));
-    const hasPositionTwo = positions.includes(Number(maxChar));
-
-    return !hasPositionOne !== !hasPositionTwo;
+    return (
+      !positions.includes(Number(minChar)) !==
+      !positions.includes(Number(maxChar))
+    );
   }).length;
