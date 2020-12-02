@@ -12,22 +12,18 @@ export const nrOfCorrectPasswords = (input) =>
     return nrOfOccurance >= minChar && nrOfOccurance <= maxChar;
   }).length;
 
-const indicies = (char, str) =>
-  str
-    .split("")
-    .reduce((acc, curr, i) => (curr === char ? acc.concat(i + 1) : acc), []);
-
 export const nrOfCorrectPasswords2 = (input) =>
   input.filter((passwordLine) => {
     const { minChar, maxChar, char, password } = passwordLine.match(
       regex
     ).groups;
 
-    const positions = indicies(char, password);
+    const positions = password
+      .split("")
+      .reduce((acc, curr, i) => (curr === char ? acc.concat(i + 1) : acc), []);
+
     const hasPositionOne = positions.includes(Number(minChar));
     const hasPositionTwo = positions.includes(Number(maxChar));
 
-    return (
-      (hasPositionOne && !hasPositionTwo) || (!hasPositionOne && hasPositionTwo)
-    );
+    return !hasPositionOne !== !hasPositionTwo;
   }).length;
