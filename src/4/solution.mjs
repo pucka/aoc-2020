@@ -20,22 +20,24 @@ const FIELDS = {
   pid: (i) => /^\d{9}$/.test(i),
 };
 
-export const validPassports = (input, strictValidation = false) => {
-  const file = getInputFromFile(input)
+export const validPassports = (inputFilePath, strictValidation = false) => {
+  const file = getInputFromFile(inputFilePath)
     .split("\n\n")
     .map((p) => p.replaceAll("\n", " "));
 
-  return file.reduce((acc, passport) => {
-    const passportSegments = passport.split(" ");
-
-    return Object.keys(FIELDS).every((key) =>
-      passportSegments.find((p) =>
-        !strictValidation
-          ? p.split(":")[0] === key
-          : p.split(":")[0] === key && FIELDS[key](p.split(":")[1])
+  return file.reduce(
+    (acc, passport) =>
+      Object.keys(FIELDS).every((key) =>
+        passport
+          .split(" ")
+          .find((p) =>
+            !strictValidation
+              ? p.split(":")[0] === key
+              : p.split(":")[0] === key && FIELDS[key](p.split(":")[1])
+          )
       )
-    )
-      ? acc + 1
-      : acc;
-  }, 0);
+        ? ++acc
+        : acc,
+    0
+  );
 };
