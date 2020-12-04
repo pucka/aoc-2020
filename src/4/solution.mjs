@@ -28,17 +28,14 @@ export const validPassports = (input, strictValidation = false) => {
   return file.reduce((acc, passport) => {
     const passportSegments = passport.split(" ");
 
-    if (
-      Object.keys(FIELDS).every((key) =>
-        passportSegments.find((p) =>
-          !strictValidation
-            ? p.split(":")[0] === key
-            : p.split(":")[0] === key && FIELDS[key](p.split(":")[1])
-        )
+    return Object.keys(FIELDS).every((key) =>
+      passportSegments.find((p) =>
+        !strictValidation
+          ? p.split(":")[0] === key
+          : p.split(":")[0] === key && FIELDS[key](p.split(":")[1])
       )
-    ) {
-      return acc + 1;
-    }
-    return acc;
+    )
+      ? acc + 1
+      : acc;
   }, 0);
 };
