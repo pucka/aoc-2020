@@ -4,19 +4,9 @@ const FIELDS = {
   byr: (i) => i >= 1920 && i <= 2002,
   iyr: (i) => i >= 2010 && i <= 2020,
   eyr: (i) => i >= 2020 && i <= 2030,
-  hgt: (i) => {
-    const match = i.match(/(?<height>\d+)(?<metric>cm|in){1}/i);
-
-    if (!match) {
-      return false;
-    }
-    const { height, metric } = match.groups;
-    return metric === "cm"
-      ? height >= 150 && height <= 193
-      : height >= 59 && height <= 76;
-  },
+  hgt: (i) => /^(1([5-8]\d{1}|9[0-3])cm|(59|6\d{1}|7[0-6])in)$/i.test(i),
   hcl: (i) => /^#([0-9a-f]{6})$/.test(i),
-  ecl: (i) => /^(amb|blu|brn|gry|grn|hzl|oth){1}$/.test(i),
+  ecl: (i) => /^(amb|blu|brn|gry|grn|hzl|oth)$/.test(i),
   pid: (i) => /^\d{9}$/.test(i),
 };
 
