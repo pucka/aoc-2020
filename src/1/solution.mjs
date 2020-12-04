@@ -1,8 +1,6 @@
 export const task1 = (input) =>
   input
-    .filter((nr) =>
-      input.find((secondNr) => nr + secondNr === 2020)
-    )
+    .filter((nr) => input.find((secondNr) => nr + secondNr === 2020))
     .reduce((acc, current) => acc * current, 1);
 
 export const task2 = (input) =>
