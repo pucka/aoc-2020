@@ -9,7 +9,8 @@ import {
 } from "./src/2/solution.mjs";
 import { nrOfTrees } from "./src/3/solution.mjs";
 import { validPassports } from "./src/4/solution.mjs";
-import { highestSeatId, mySeatId } from './src/5/solution.mjs';
+// import { highestSeatId, mySeatId } from './src/5/solution.mjs';
+import { highestSeatId, mySeatId } from './src/5/solutionAlt.mjs';
 
 ava("Day 1", (t) => {
   const exampleInput = [1721, 979, 366, 299, 675, 1456];
