@@ -1,4 +1,4 @@
-# Advents of Code 2020
+# Advents of Codes 2020
 
 Using `JS`.
 
