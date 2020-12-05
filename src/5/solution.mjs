@@ -20,29 +20,20 @@ const getSeats = (input) =>
       .split("")
       .map((c) => (c === "L" ? -1 : 1));
 
-    const row = binarySearch(rowDir, 0, 0, 127);
-    const seat = binarySearch(seatDir, 0, 0, 7);
-    
-    return {
-      row: row,
-      seat: seat,
-      id: row * 8 + seat,
-    };
+    return binarySearch(rowDir, 0, 0, 127) * 8 + binarySearch(seatDir, 0, 0, 7);
   });
 
 export const highestSeatId = (input) =>
-  getSeats(input).reduce((acc, seat) => (seat.id > acc ? seat.id : acc), 0);
+  getSeats(input).reduce((acc, seatId) => (seatId > acc ? seatId : acc), 0);
 
 export const mySeatId = (input) => {
-  const seats = getSeats(input).sort(
-    (a, b) => a.row - b.row || a.seat - b.seat
-  );
+  const seats = getSeats(input).sort((a, b) => a - b);
 
-  let currSeatId = seats[0].id;
+  let currSeatId = seats[0];
   let seatsIndex = 1;
 
-  while (seats[seatsIndex].id === currSeatId + 1) {
-    currSeatId = seats[seatsIndex++].id;
+  while (seats[seatsIndex] === currSeatId + 1) {
+    currSeatId = seats[seatsIndex++];
   }
 
   return currSeatId + 1;
