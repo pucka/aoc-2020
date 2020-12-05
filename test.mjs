@@ -9,6 +9,7 @@ import {
 } from "./src/2/solution.mjs";
 import { nrOfTrees } from "./src/3/solution.mjs";
 import { validPassports } from "./src/4/solution.mjs";
+import { highestSeatId, mySeatId } from './src/5/solution.mjs';
 
 ava("Day 1", (t) => {
   const exampleInput = [1721, 979, 366, 299, 675, 1456];
@@ -38,7 +39,7 @@ ava("Day 2", (t) => {
   t.is(nrOfCorrectPasswords2(input), 443);
 });
 
-ava("Day 3 - 1", (t) => {
+ava("Day 3", (t) => {
   const exampleInput = getInputFromFile("3/exampleInput.txt").split("\n");
   const input = getInputFromFile("3/input.txt").split("\n");
 
@@ -72,4 +73,16 @@ ava("Day 4", (t) => {
   // task 2
   t.is(validPassports(exampleInput, true), 2);
   t.is(validPassports(input, true), 131);
+});
+
+ava("Day 5", (t) => {
+  const exampleInput = getInputFromFile("5/exampleInput.txt").split('\n');
+  const input = getInputFromFile("5/input.txt").split("\n");
+
+  // task 1
+  t.is(highestSeatId(exampleInput), 820);
+  t.is(highestSeatId(input), 894);
+
+  // // task 2
+  t.is(mySeatId(input), 579);
 });
