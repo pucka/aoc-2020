@@ -6,8 +6,8 @@ export const day6 = (input) =>
       0
     );
 
-export const day62 = (input) => {
-  return input.split("\n\n").reduce((acc, curr) => {
+export const day62 = (input) =>
+  input.split("\n\n").reduce((acc, curr) => {
     const rows = curr.split("\n");
     const hash = {};
     rows.forEach((row) =>
@@ -20,4 +20,3 @@ export const day62 = (input) => {
       Object.keys(hash).filter((key) => hash[key] === rows.length).length + acc
     );
   }, 0);
-};
