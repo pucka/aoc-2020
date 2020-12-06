@@ -11,6 +11,7 @@ import { nrOfTrees } from "./src/3/solution.mjs";
 import { validPassports } from "./src/4/solution.mjs";
 // import { highestSeatId, mySeatId } from './src/5/solution.mjs';
 import { highestSeatId, mySeatId } from './src/5/solutionAlt.mjs';
+import { day6, day62 } from './src/6/solution.mjs';
 
 ava("Day 1", (t) => {
   const exampleInput = [1721, 979, 366, 299, 675, 1456];
@@ -86,4 +87,17 @@ ava("Day 5", (t) => {
 
   // // task 2
   t.is(mySeatId(input), 579);
+});
+
+ava("Day 6", (t) => {
+  const exampleInput = getInputFromFile("6/exampleInput.txt");
+  const input = getInputFromFile("6/input.txt");
+
+  // task 1
+  t.is(day6(exampleInput), 11);
+  t.is(day6(input), 6686);
+
+  // // task 2
+  t.is(day62(exampleInput), 6);
+  t.is(day62(input), 3476);
 });
