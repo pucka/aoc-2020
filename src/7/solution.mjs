@@ -19,20 +19,16 @@ const getTree = (input) =>
     return tree;
   }, {});
 
-const findBag = (tree, search, arr) => {
-  if (arr.length === 0) {
-    return false;
-  }
-  return Boolean(
-    arr.find((child) => {
-      if (child.id === search) {
-        return true;
-      }
-
-      return findBag(tree, search, tree[child.id].children);
-    })
-  );
-};
+const findBag = (tree, search, arr) =>
+  arr.length === 0
+    ? false
+    : Boolean(
+        arr.find(
+          (child) =>
+            child.id === search ||
+            findBag(tree, search, tree[child.id].children)
+        )
+      );
 
 const findNrOfBags = (tree, arr) =>
   arr.reduce(
