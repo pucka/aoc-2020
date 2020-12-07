@@ -12,6 +12,7 @@ import { validPassports } from "./src/4/solution.mjs";
 // import { highestSeatId, mySeatId } from './src/5/solution.mjs';
 import { highestSeatId, mySeatId } from './src/5/solutionAlt.mjs';
 import { day6, day62 } from './src/6/solution.mjs';
+import { day7, day7_2 } from './src/7/solution.mjs';
 
 ava("Day 1", (t) => {
   const exampleInput = [1721, 979, 366, 299, 675, 1456];
@@ -100,4 +101,17 @@ ava("Day 6", (t) => {
   // // task 2
   t.is(day62(exampleInput), 6);
   t.is(day62(input), 3476);
+});
+
+ava("Day 7", (t) => {
+  const exampleInput = getInputFromFile("7/exampleInput.txt").split("\n");
+  const input = getInputFromFile("7/input.txt").split("\n");
+
+  // task 1
+  t.is(day7(exampleInput), 4);
+  t.is(day7(input), 103);
+
+  // // task 2
+  t.is(day7_2(exampleInput), 32);
+  t.is(day7_2(input), 1469);
 });
