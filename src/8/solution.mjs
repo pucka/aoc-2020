@@ -24,7 +24,6 @@ const getAcc = (input, switchNr) => {
       case "nop":
         switchCount++;
         currIndex++;
-        break;
     }
   }
 
@@ -38,14 +37,12 @@ export const day8 = (input) => getAcc(input).acc;
 
 export const day8_2 = (input) => {
   const inputLength = input.length;
-  let swapIndex = 1;
+  let swapIndex = 0;
   let output;
 
   while (
-    ((output = getAcc(input, swapIndex)), output.currIndex < inputLength)
-  ) {
-    swapIndex++;
-  }
+    ((output = getAcc(input, ++swapIndex)), output.currIndex < inputLength)
+  );
 
   return output.acc;
 };
