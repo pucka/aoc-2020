@@ -14,6 +14,7 @@ import { highestSeatId, mySeatId } from './src/5/solutionAlt.mjs';
 import { day6, day62 } from './src/6/solution.mjs';
 import { day7, day7_2 } from './src/7/solution.mjs';
 import { day8, day8_2 } from './src/8/solution.mjs';
+import { day9, day9_2 } from './src/9/solution.mjs';
 
 ava("Day 1", (t) => {
   const exampleInput = [1721, 979, 366, 299, 675, 1456];
@@ -128,4 +129,17 @@ ava("Day 8", (t) => {
   // // task 2
   t.is(day8_2(exampleInput), 8);
   t.is(day8_2(input), 1016);
+});
+
+ava("Day 9", (t) => {
+  const exampleInput = getInputFromFile("9/exampleInput.txt").split("\n");
+  const input = getInputFromFile("9/input.txt").split("\n");
+
+  // task 1
+  t.is(day9(exampleInput, 5), 127);
+  t.is(day9(input, 25), 41682220);
+
+  // // task 2
+  t.is(day9_2(exampleInput, 127), 62);
+  t.is(day9_2(input, 41682220), 5388976);
 });
