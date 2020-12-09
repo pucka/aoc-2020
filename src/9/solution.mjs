@@ -20,13 +20,12 @@ export const day9_2 = (input, nrToFind) => {
   let y;
   let sum;
   while (x < l && sum !== nrToFind) {
-    y = x;
+    y = x++;
     sum = 0;
     while (y < l && sum < nrToFind) {
       sum += Number(input[y]);
       y++;
     }
-    x++;
   }
 
   return (
