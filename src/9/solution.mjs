@@ -5,13 +5,11 @@ export const day9 = (input, preamble) => {
         return false;
       }
       const searchInRange = input.slice(index - preamble, index);
-      const found = searchInRange.find((nr, i) =>
+      return !searchInRange.find((nr, i) =>
         searchInRange
           .slice(i + 1)
           .find((nr2) => Number(nr2) + Number(nr) === Number(totalNr))
       );
-
-      return !found;
     })
   );
 };
