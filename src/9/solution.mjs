@@ -23,8 +23,7 @@ export const day9_2 = (input, nrToFind) => {
     y = x++;
     sum = 0;
     while (y < l && sum < nrToFind) {
-      sum += Number(input[y]);
-      y++;
+      sum += Number(input[y++]);
     }
   }
 
