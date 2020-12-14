@@ -18,6 +18,7 @@ import { day9, day9_2 } from './src/9/solution.mjs';
 import { day10, day10_2 } from './src/10/solution.mjs';
 import { day11 } from './src/11/solution.mjs';
 import { day12, day12_2 } from './src/12/solution.mjs';
+import { day13, day13_2 } from './src/13/solution.mjs';
 
 ava("Day 1", (t) => {
   const exampleInput = [1721, 979, 366, 299, 675, 1456];
@@ -181,4 +182,17 @@ ava("Day 12", (t) => {
 
   t.is(day12_2(exampleInput), 286);
   t.is(day12_2(input), 106860);
+});
+
+ava("Day 13", (t) => {
+  const exampleInput = getInputFromFile("13/exampleInput.txt").split("\n");
+  const input = getInputFromFile("13/input.txt").split("\n");
+
+  // task 1
+  t.is(day13(exampleInput), 295);
+  t.is(day13(input), 2995);
+  
+  //task 2
+  t.is(day13_2(exampleInput), 1068781);
+  // t.is(day13_2(input, 100000000000000), 1068781);
 });
